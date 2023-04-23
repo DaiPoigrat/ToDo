@@ -1,0 +1,88 @@
+{% extends 'todo/todo.html' %}
+{% load static %}
+
+{% block navigation %}
+<nav class="side-navigation-container">
+    <div class="side-navigation-item" id="img1">
+        <img src="{% static 'todo/img/today2.svg' %}" alt="">
+        <span style="color: #FF4F5A;">Today</span>
+    </div>
+    <a href="{% url 'yesterday' user_id %}">
+        <div class="side-navigation-item" id="img1">
+            <img src="{% static 'todo/img/yesterday1.svg' %}" alt="" class="passive">
+            <img src="{% static 'todo/img/yesterday2.svg' %}" alt="" class="active">
+            <span>Yesterday</span>
+        </div>
+    </a>
+    <!-- <a href="">
+        <div class="side-navigation-item" id="img1">
+            <img src="{% static 'todo/img/upcoming1.svg' %}" alt="" class="passive">
+            <img src="{% static 'todo/img/upcoming2.svg' %}" alt="" class="active">
+            <span>Upcoming</span>
+        </div>
+    </a> -->
+</nav>
+{% endblock %}
+
+{% block main %}
+<div class="main-content">
+    <h2>Today</h2>
+    <span class="completed">
+        {{ current }}/{{ all }} completed
+    </span>
+    <div class="task-list">
+    {% for el in tasks %}
+        <div class="task" id="task-text-block-{{ el.id }}">
+            <div class="point">
+                {% if el.passed %}
+                <a href="{% url 'passed' user_id 'today' el.id %}"><img src="{% static 'todo/img/task2.svg' %}" alt=""></a>
+                {% else %}
+                <a href="{% url 'passed' user_id 'today' el.id %}"><img src="{% static 'todo/img/task1.svg' %}" alt=""></a>
+                {% endif %}
+            </div>
+            <div class="task-text-content">
+                <div class="text-block">
+                    <span class="task-name">{{ el.name }}</span>
+                    <p class="task-text">{{ el.text }}</p>
+                </div>
+
+                <div class="edit-block">
+                    <div class="edit-button" onclick="EditTask({{ el.id }}, `{{ el.name }}`, `{{ el.text }}`)">
+                        <img src="{% static 'todo/img/edit.svg' %}" alt="">
+                    </div>
+                    <div class="delete-button">
+                        <a href="{% url 'delete' user_id 'today' el.id %}"><img src="{% static 'todo/img/delete.svg' %}" alt="" style="width: 24px"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="edit-task hidden" id="task-edit-block-{{ el.id }}">
+            <div class="edit-task-form" id="task-edit-block">
+                <form action="{% url 'edit' user_id 'today' el.id %}" method="post" class="add-form">
+                    {% csrf_token %}
+                    {{ form.name }}
+                    {{ form.text }}
+                    <button class="add-task-btn add-task-block-buttons" type="submit">Change</button>
+                </form>
+                <button class="cancel-task-btn add-task-block-buttons" onclick="EditTaskCancel({{ el.id }})">Cancel</button>
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    <div class="add-task-block">
+        <div class="add-task-button-prev" onclick="AddTask()" id="add-task-button-prev">
+            <img src="{% static 'todo/img/plus.svg' %}" alt="">
+            <span>Add task</span>
+        </div>
+        <div class="add-task-block-form hidden" id="add-task-block-form" style="margin-left: 35px">
+            <form action="" method="post" class="add-form">
+                {% csrf_token %}
+                {{form.name}}
+                {{form.text}}
+                <button class="add-task-btn add-task-block-buttons" type="submit">Add</button>
+            </form>
+            <button class="cancel-task-btn add-task-block-buttons" onclick="AddTask()">Cancel</button>
+        </div>
+    </div>
+</div>
+{% endblock %}

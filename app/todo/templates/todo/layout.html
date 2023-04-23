@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'main/img/logo.svg' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'todo/css/layout.css' %}">
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'home' %}"><div class="logo"><img src="{% static 'main/img/logo.svg' %}" alt="">Todo Daily</div></a>
+        <h2>{% block header %}{% endblock %}</h2>
+        <!-- <div class="reg-buttons">
+            <button style="margin-bottom: 7px;"><img src="{% static 'main/img/google.svg' %}" alt=""><span>Continue using Google</span></button>
+            <button><img src="{% static 'main/img/git.svg' %}" alt=""><span>Continue using GitHub</span></button>
+        </div> -->
+        <div class="reg-form-block">
+            {% block form %}
+            {% endblock %}
+        </div>
+        <hr>
+        {% block footer %}
+        {% endblock %}
+    </div>
+</body>
+</html>

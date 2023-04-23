@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ToDo</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'main/img/logo.svg' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header class="header-navigation">
+            <div class="logo"><img src="{% static 'main/img/logo.svg' %}" alt=""> Todo Daily</div>
+            <nav class="nav-container">
+                <button class="login"><a href="{% url 'login' %}">Login</a></button>
+                <button class="signup"><a href="{% url 'register' %}">Signup</a></button>
+            </nav>
+        </header>
+        <div class="getting-started">
+            <h2>Organizing your day activity <br> with Todo Daily</h2>
+            <a href="{% url 'register' %}"><button class="get-started">Get started</button></a>
+        </div>
+        <div class="action-list">
+            <h2>Don’t let your day doing nothing</h2>
+            <div class="action-list-container">
+                <div class="action-list-element">
+                    <img src="{% static 'main/img/task.svg' %}" alt="">
+                    <span>Small task</span>
+                </div>
+                <div class="action-list-element">
+                    <img src="{% static 'main/img/write.svg' %}" alt="">
+                    <span>Write it</span>
+                </div>
+                <div class="action-list-element">
+                    <img src="{% static 'main/img/bag.svg' %}" alt="">
+                    <span>Do it</span>
+                </div>
+                <div class="action-list-element">
+                    <img src="{% static 'main/img/calendar.svg' %}" alt="">
+                    <span>Repeat</span>
+                </div>
+            </div>
+        </div>
+        <div class="achieve-life">
+            <img src="{% static 'main/img/bg2.svg' %}" alt="">
+            <div class="achieve-life-text-content">
+                <h2>Achieve your target <br> and won your life</h2>
+                <a href="{% url 'register' %}"><button class="get-started">Get started</button></a>
+            </div>
+        </div>
+        <footer class="footer-content">
+            <hr>
+            <div class="footer-text-content">
+                <div class="info">
+                    <img src="{% static 'main/img/logo.svg' %}" alt="">
+                    <span>Lets change your habit <br> join with million people</span>
+                </div>
+                <div class="links">
+                    <ul>
+                        <li><a href="https://github.com/DaiPoigrat?tab=repositories" target="_blank">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

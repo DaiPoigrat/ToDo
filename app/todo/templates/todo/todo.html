@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'main/img/logo.svg' %}">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'todo/css/todo.css' %}">
+    <script type="text/javascript" src="{% static 'todo/js/functions.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header-content">
+            <div class="logo">
+                <a href="{% url 'today' user_id %}">
+                    <img src="{% static 'todo/img/logo.svg' %}" alt="">
+                    <span>ToDo Daily</span>
+                </a>
+            </div>
+            <div class="profile">
+                <span onclick="ProfileMenu()" class="profile-name">{{ user.username }}</span>
+                <img src="{{ user.profile_photo.url }}" alt="" class="profile-logo">
+                <div id="dropdown-block" class="dropdown-block">
+                    <div class="profile-dropdown">
+                        <div class="profile-dropdown-item">
+                            <a href="{% url 'profile' user_id %}">
+                                <img src="{% static 'todo/img/profile.svg' %}" alt="">
+                                <span>Profile</span>
+                            </a>
+                        </div>
+                        <div class="profile-dropdown-item">
+                            <a href="">
+                                <img src="{% static 'todo/img/settings.svg' %}" alt="">
+                                <span>Settings</span>
+                            </a>
+                        </div>
+                        <hr>
+                        <div class="profile-dropdown-item">
+                            <a href="">
+                                <img src="{% static 'todo/img/logout.svg' %}" alt="">
+                                <span style="color: #FF4F5A">Logout</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <aside class="side-navigation">
+            {% block navigation %}
+            {% endblock %}
+            <!-- <nav class="side-navigation-container">
+                <div class="side-navigation-item" id="img1">
+                    <img src="{% static 'todo/img/today1.svg' %}" alt="" class="passive">
+                    <img src="{% static 'todo/img/today2.svg' %}" alt="" class="active">
+                    <span>Today</span>
+                </div>
+                <div class="side-navigation-item" id="img1">
+                    <img src="{% static 'todo/img/yesterday1.svg' %}" alt="" class="passive">
+                    <img src="{% static 'todo/img/yesterday2.svg' %}" alt="" class="active">
+                    <span>Yesterday</span>
+                </div>
+                <div class="side-navigation-item" id="img1">
+                    <img src="{% static 'todo/img/upcoming1.svg' %}" alt="" class="passive">
+                    <img src="{% static 'todo/img/upcoming2.svg' %}" alt="" class="active">
+                    <span>Upcoming</span>
+                </div>
+            </nav> -->
+        </aside>
+        {% block main %}
+        {% endblock %}
+    </div>
+</body>
+</html>

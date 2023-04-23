@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 512px;
+    /* height: 533px; */
+    height: 650px;
+    border: 1px solid #D2D2D2;
+    border-radius: 6px;
+    padding: 40px;
+}
+
+.logo {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 45px;
+    color: #FF4F5A;
+    font-family: 'Rowdies', cursive;
+    margin-bottom: 40px;
+}
+
+.logo img {
+    margin-right: 10px;
+}
+
+.container h2 {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: 'Rowdies', cursive;
+    margin-bottom: 40px;
+}
+
+.reg-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 115px;
+}
+
+.reg-buttons button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 430px;
+    height: 40px;
+    border: 1px solid #D2D2D2;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.reg-buttons button img {
+    margin-right: 10px;
+}
+
+.container hr {
+    width: 100%;
+    height: 1px;
+    background: #D8D8D8;
+    margin-top: 50px;
+}
+
+.text-after {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.text-after a {
+    text-decoration: none;
+    color: #FF4F5A;
+}
+
+.reg-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* height: 200px; */
+    height: 280px;
+}
+
+.reg-form-input {
+    width: 430px;
+    height: 40px;
+    border: 1px solid #D2D2D2;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 10px;
+}
+
+.reg-form-submit {
+    width: 232px;
+    height: 43px;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 44px;
+    color: #fff;
+    background: #FF4F5A;
+    border-radius: 25px;
+}

@@ -1,0 +1,64 @@
+{% extends 'todo/todo.html' %}
+{% load static %}
+
+{% block navigation %}
+<nav class="side-navigation-container">
+    <a href="{% url 'today' user_id %}">
+        <div class="side-navigation-item" id="img1">
+            <img src="{% static 'todo/img/today1.svg' %}" alt="" class="passive">
+            <img src="{% static 'todo/img/today2.svg' %}" alt="" class="active">
+            <span>Today</span>
+        </div>
+    </a>
+    <a href="{% url 'yesterday' user_id %}">
+        <div class="side-navigation-item" id="img1">
+            <img src="{% static 'todo/img/yesterday1.svg' %}" alt="" class="passive">
+            <img src="{% static 'todo/img/yesterday2.svg' %}" alt="" class="active">
+            <span>Yesterday</span>
+        </div>
+    </a>
+    <div class="side-navigation-item" id="img1">
+        <img src="{% static 'todo/img/upcoming2.svg' %}" alt="">
+        <span style="color: #FF4F5A;">Upcoming</span>
+    </div>
+</nav>
+{% endblock %}
+
+{% block main %}
+<div class="main-content">
+    <h2>Upcoming</h2>
+    <h3>January 2022</h3>
+    <div class="upcoming-day-slider" onload="PreSelectDay({{ day }})">
+        <div class="upcoming-day-slider-item selected-day" id="day-1" onclick="SelectDay(1)">
+            <a href="{% url 'select' user_id '11.01.2003' %}"><span class="upcoming-day-slider-number">1</span></a>
+        </div>
+
+        <div class="upcoming-day-slider-item" id="day-2"  onclick="SelectDay(2)">
+            <a href=""><span class="upcoming-day-slider-number">2</span></a>
+        </div>
+
+        <div class="upcoming-day-slider-item" id="day-3"  onclick="SelectDay(3)">
+            <a href=""><span class="upcoming-day-slider-number">3</span></a>
+        </div>
+
+        <div class="upcoming-day-slider-item" id="day-4"  onclick="SelectDay(4)">
+            <a href=""><span class="upcoming-day-slider-number">4</span></a>
+        </div>
+
+        <div class="upcoming-day-slider-item" id="day-5"  onclick="SelectDay(5)">
+            <a href=""><span class="upcoming-day-slider-number">5</span></a>
+        </div>
+
+        <div class="upcoming-day-slider-item" id="day-6"  onclick="SelectDay(6)">
+            <a href=""><span class="upcoming-day-slider-number">6</span></a>
+        </div>
+
+        <div class="upcoming-day-slider-item" id="day-7"  onclick="SelectDay(7)">
+            <a href=""><span class="upcoming-day-slider-number">7</span></a>
+        </div>
+    </div>
+    <div class="upcoming-day-content">
+        content
+    </div>
+</div>
+{% endblock %}

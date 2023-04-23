@@ -1,0 +1,39 @@
+{% extends 'todo/todo.html' %}
+{% load static %}
+
+{% block navigation %}
+<nav class="side-navigation-container">
+    <div class="side-navigation-item" id="img1">
+        <img src="{% static 'todo/img/today2.svg' %}" alt="">
+        <span style="color: #FF4F5A;">Profile</span>
+    </div>
+    <a href="">
+        <div class="side-navigation-item" id="img1">
+            <img src="{% static 'todo/img/yesterday1.svg' %}" alt="" class="passive">
+            <img src="{% static 'todo/img/yesterday2.svg' %}" alt="" class="active">
+            <span>Settings</span>
+        </div>
+    </a>
+    <!-- <a href="">
+        <div class="side-navigation-item" id="img1">
+            <img src="{% static 'todo/img/upcoming1.svg' %}" alt="" class="passive">
+            <img src="{% static 'todo/img/upcoming2.svg' %}" alt="" class="active">
+            <span>Upcoming</span>
+        </div>
+    </a> -->
+</nav>
+{% endblock %}
+
+{% block main %}
+<div class="edit-profile-form">
+    <form action="{% url 'update' user_id %}" method="post" class="add-form" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label class="profile-photo-input-label">
+            <img src="{% static 'todo/img/upload.svg' %}" alt="">
+            {{ form.profile_photo }}
+        </label>
+        {{ form.username }}
+        <button class="add-task-btn add-task-block-buttons" type="submit">Change</button>
+    </form>
+</div>
+{% endblock %}
